@@ -19,12 +19,12 @@ component
 
 	public any function checkPermissions()
 	{
-		WriteOutput( "<div>Checking permissions of the logged in user...</div>" );
+		return "<div>Checking permissions of the logged in user...</div>";
 	}
 
 	public any function sendDetailsEmail()
 	{
-		WriteOutput( "<div>Email with details has been sent!</div>" );
+		return "<div>Email with details has been sent!</div>";
 	}
 
 }
