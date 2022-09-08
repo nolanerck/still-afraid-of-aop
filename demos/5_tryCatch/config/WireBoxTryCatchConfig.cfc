@@ -5,7 +5,7 @@ component extends="WireBox.system.ioc.config.Binder"{
 	*/
 	function configure(){		
 
-		var modelsDir = "demos.4_tryCatch.models";
+		var modelsDir = "demos.5_tryCatch.models";
 
 		// The WireBox configuration structure DSL
 		wireBox = {
@@ -34,7 +34,7 @@ component extends="WireBox.system.ioc.config.Binder"{
 		mapAspect( "MusicianAdvice" ).to( "#modelsDir#.MusicianAspect" );
 
 		bindAspect( classes=match().mappings( 'constructedMusician' ), 
-					methods=match().methods( 'displayMusicianDetails' ), 
+					methods=match().methods( 'getQuarterlyReport' ), 
 					aspects="MusicianAdvice" );
 
 	}	

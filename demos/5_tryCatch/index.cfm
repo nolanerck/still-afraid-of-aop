@@ -1,4 +1,4 @@
-<cfset myResponse = application.wirebox.getInstance( "constructedMusician" ).displayMusicianDetails() />
+<cfset application.wirebox.getInstance( "constructedMusician" ).getQuarterlyReport() />
 
 <cfoutput>
 	#myResponse#

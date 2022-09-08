@@ -5,7 +5,7 @@ component extends="WireBox.system.ioc.config.Binder"{
 	*/
 	function configure(){		
 
-		var modelsDir = "demos.3_beforeAndAfterFunctions.models";
+		var modelsDir = "demos.4_beforeAndAfterFunctions.models";
 
 		// The WireBox configuration structure DSL
 		wireBox = {

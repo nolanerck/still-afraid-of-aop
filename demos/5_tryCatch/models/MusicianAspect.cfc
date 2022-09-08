@@ -7,18 +7,24 @@ component implements="wirebox.system.aop.MethodInterceptor"
 
 	function invokeMethod( required any invocation ) output="true"
 	{
-		try
+		if( application.isProduction )
+		{
+			try
+			{
+				// run the actual query
+				arguments.invocation.proceed();
+			}
+			catch (any ex) 
+			{
+				WriteOutput( "Sorry, something bad happened. I.T. has been notified." );
+				abort;	
+			}
+		}
+		else
 		{
 			// run the actual query
-			var actualMusicianFunctionResults = arguments.invocation.proceed();
+			arguments.invocation.proceed();
 		}
-		catch (any ex) 
-		{
-			
-		}
-
-		return response;
 	}
-
 }
 
