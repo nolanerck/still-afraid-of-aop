@@ -235,7 +235,7 @@
 				</section>
 
 				<section>
-					<h2>Aspect Oriented Programming (AOP)</h2>
+					<h2>Wrap Code Around Code</h2>
 					<p>Say I have a query like so:</p>
 <pre class="code">
 &lt;cfquery name=”qryGetUsers”&gt;
@@ -245,7 +245,7 @@
 					<p>In Production, I want that wrapped in a try/catch, but in QA/Development, I don't.  (So I can see the debug output, etc.)</p>
 				</section>
 				<section>
-					<h2>Aspect Oriented Programming (AOP)</h2>
+					<h2>Wrap Code Around Code</h2>
 <p>I'd have to set some kind of “flag”:</p>
 <pre class="code">
 &lt;cfif isProduction&gt;
@@ -267,20 +267,6 @@
 						Duplicate Code!<br/>
 						Remember the DRY rule!
 					</p>
-				</section>
-
-				<section>
-					<h2>Aspect Oriented Programming (AOP)</h2>
-
-					<p>Instead of calling a getUsers() method directly:</p>
-					<pre class="code">GetUsers();</pre>
-
-					<p>In your AOP library:</p>
-<pre class="code">
-&lt;advice around functionName=”getUsersWithAdvice”&gt;
-	&lt;method name=”getUsers” /&gt;
-&lt;/advice&gt;
-</pre>
 				</section>
 
 				<section>
