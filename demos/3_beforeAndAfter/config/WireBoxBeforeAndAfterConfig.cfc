@@ -5,6 +5,8 @@ component extends="WireBox.system.ioc.config.Binder"{
 	*/
 	function configure(){		
 
+		var modelsDir = "demos.3_beforeAndAfter.models";
+
 		// The WireBox configuration structure DSL
 		wireBox = {
 			// Scope registration, automatically register a wirebox injector instance on any CF scope
@@ -16,7 +18,7 @@ component extends="WireBox.system.ioc.config.Binder"{
 			},
 
 			// Package scan locations
-			scanLocations = [ "demos.2_beforeAndAfter.models", "demoModels" ]
+			scanLocations = [ modelsDir ]
 
 			,listeners = [
 			    { class="wirebox.system.aop.Mixer", properties={} }
@@ -24,12 +26,12 @@ component extends="WireBox.system.ioc.config.Binder"{
 			
 		};
 		
-		map( "constructedMusician" ).to( "demos.2_beforeAndAfter.models.Musician" )
+		map( "constructedMusician" ).to( "#modelsDir#.Musician" )
 									.initArg( name="name", value="Pete Best" )
 						  	 		.initArg( name="instrument", value="Drums" );
 
 		// add our AOP adivce
-		mapAspect( "MusicianAdvice" ).to( "demos.2_beforeAndAfter.models.MusicianAspect" );
+		mapAspect( "MusicianAdvice" ).to( "#modelsDir#.MusicianAspect" );
 
 		bindAspect( classes=match().mappings( 'constructedMusician' ), 
 					methods=match().methods( 'displayMusicianDetails' ), 
