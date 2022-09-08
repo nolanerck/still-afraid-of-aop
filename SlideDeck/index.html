@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>Web Components and CFML</title>
+		<title>I'm Still Afraid of Aspect Oriented Programming!</title>
 
 		<link rel="stylesheet" href="./Reveal.js/css/reveal.css">
 		<link rel="stylesheet" href="./Reveal.js/css/theme/moon.css" id="theme">
@@ -47,7 +47,7 @@
 		<div class="reveal">
 			<div class="slides">
 				<section>
-					<h2>Web Components and CFML</h2>
+					<h2>I'm Still Afraid of Aspect Oriented Programming!</h2>
 					<p class="centered">Nolan Erck</p>
 					<p class="centered">South of Shasta</p>
 				</section>
@@ -55,11 +55,7 @@
 				<section>
 					<h2>About Me</h2>
 					<ul>
-						<li>Software Consultant (southofshasta.com)
-							<ul>
-								<li>Software Development, Training, Design</li>
-							</ul>
-						</li>
+						<li>Owner / Director, South of Shasta</li>
 						<li>VP of Engineering, e-MissionControl</li>
 						<li>Manager, Sac Interactive Tech Meetup</li>
 						<li>Reformed Video Game Developer - Grim Fandango, SimPark, StarWars Rogue Squadron, etc...</li>
@@ -76,27 +72,49 @@
 				<section>
 					<h2>Code And Slides</h2>
 					<p class="centered">github.com/nolanerck</p>
-					<p class="centered">web-components-and-cfml</p>
+					<p class="centered">still-afraid-of-aop</p>
 				</section>
 
 				<section>
 					<h2>Prerequisites</h2>
 					<ul>
-						<li>Comfortable with modern JavaScript</li>
-						<li>(including basic OOP concepts)</li>
-						<li>Some experience using CF Custom Tags</li>
+						<li>Comfortable with basic OOP Concepts</li>
+						<li>Inheritance, Composition, Interfaces</li>
+						<li>Other D/I concepts: Bean Injection, Inversion of Control</li>
+						<li>Do NOT need to be using an MVC framework</li>
 					</ul>
 				</section>
 
 				<section>
 					<h2>Today's Agenda</h2>
 					<ul>
-						<li>What are Design Patterns?</li>
-						<li>Why do I want to use them?</li>
-						<li>Some common design patterns</li>
-						<li>Examples of when to use design patterns</li>
+						<li>What is AOP?</li>
+						<li>Why/when do I want to use it?</li>
+						<li>Some code examples</li>
+						<li>Examples of when they might be handy</li>
 						<li>Tips</li>
 						<li>Other resources</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>What is AOP?</h2>
+					<ul>
+						<li>Aspect Oriented Programming</li>
+						<li>Design Pattern in OO development</li>
+						<li>Not CFML or Web specific</li>
+						<li>Can work in any OOP language</li>
+						<li>CFML: ColdSpring, AOP/1, WireBox, others</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>For Today's Session</h2>
+					<ul>
+						<li>Using WireBox</li>
+						<li>It's easy to set up</li>
+						<li>Does <em>not</em> require ColdBox</li>
+						<li>Works with <em>any</em> CFML application</li>
 					</ul>
 				</section>
 
@@ -157,120 +175,6 @@
 						<li>Ensures that 1 and only 1 copy of a CFC gets created.</li>
 						<li>And that 1 copy is used by the <em>entire</em> application.</li>
 						<li>[Singleton Demo]</li>
-					</ul>
-				</section>
-
-				<section>
-					<h2>Strategy Pattern</h2>
-					<ul>
-						<li>For when you have classes that KIND OF behave the same way, but
-							not <em>exactly</em> enough for Inheritance to be useful.
-						</li>
-						<li>(Also a great intro to Interfaces)</li>
-						<li>Ducks are a great example!</li>
-					</ul>
-				</section>
-
-				<section>
-					<h2>Strategy Pattern and Ducks!</h2>
-					<ul>
-						<li>Ducks can fly, swim, quack, and eat</li>
-						<li class="fragment">ALL ducks?</li>
-						<li class="fragment">Rubber duck toys?</li>
-						<li class="fragment">Wooden decoy ducks?</li>
-						<li class="fragment">[Strategy Demo]</li>
-					</ul>
-				</section>
-
-				<section>
-					<h2>Strategy Pattern</h2>
-					<ul>
-						<li>Real world uses:</li>
-						<li>Payroll system: Full time employees, contractors, interns</li>
-						<li>Do they all get paid the same way?</li>
-						<li>Video games: things that fly...birds, insects, space ships</li>
-						<li>Do they all fly the same way?</li>
-					</ul>
-				</section>
-
-				<section>
-					<h2>Factory Pattern</h2>
-					<ul>
-						<li>Used for creating different variations of the same Object</li>
-						<li>You don't do createObject() or new() directly</li>
-						<li>Ask the Factory to create an object <em>for</em> you</li>
-						<li>Requires only 1 CFC!</li>
-						<li>[Factory 1 Demo]</li>
-						<li>[Factory 2 Demo]</li>
-					</ul>
-				</section>
-
-				<section>
-					<h2>Adapter Pattern</h2>
-					<ul>
-						<li>Makes 2 (or more) CFCs that are different all run in the same way</li>
-						<li>You write 1 Adapter CFC to connect the components</li>
-						<li>Similar to "adapters" in the real world -- 3-prong adapter for a 2-prong power outlet, etc</li>
-						<li>[Adapter Demo]</li>
-					</ul>
-				</section>
-
-				<section>
-					<h2>Adapter Pattern</h2>
-					<ul>
-						<li>Real world use: swapping vendor libaries/APIs</li>
-						<li>Don't want to rebuild your entire app when switching vendors</li>
-						<li>Use an Adapter! Leave your app code as-is, just adapt the vendor methods so they work the same way</li>
-					</ul>
-				</section>
-
-				<section>
-					<h2>Decorator Pattern</h2>
-
-					<ul>
-						<li>Adds new behavior to a CFC</li>
-						<li>Replacemnet for tangled inheritance trees</li>
-						<li>Happens at run-time</li>
-						<li>Instead of inheriting the new functionality, the component is <em>decorated</em> with it</li>
-					</ul>
-				</section>
-
-				<section>
-					<h2>Decorator Pattern</h2>
-
-					<ul>
-						<li>Building an espresso machine</li>
-						<li>4 types of coffee: House Blend, Dark Roast, Espresso, Decaf</li>
-						<li>Whip cream and/or hazelnut on all 4</li>
-					</ul>
-				</section>
-
-				<section>
-					<img src="images/1_4-coffees.png" />
-				</section>
-
-				<section>
-					<img src="images/2_8-coffees-whip-cream.png" />
-				</section>
-
-				<section>
-					<img src="images/3_16coffees.png" />
-				</section>
-
-				<section>
-					<h2>Decorator Pattern</h2>
-					<ul>
-						<li>[Decorator Demo]</li>
-					</ul>
-				</section>
-
-				<section>
-					<h2>Decorator Pattern</h2>
-					<ul>
-						<li>Real world uses: any time you have a bunch of options, each with its own business logic</li>
-						<li>Adding logging, security, polling, and 2FA to a piece of functionality in your app</li>
-						<li>...then later adding a feature flag requirement</li>
-						<li>...write 1 FeatureFlag CFC, and decorate your app as needed.</li>
 					</ul>
 				</section>
 
